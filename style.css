@@ -2,19 +2,22 @@
 * {
     box-sizing: border-box;
 }
+
 body {
-    display:flex;
+    display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
+
 header {
     background: tomato;
     display: flex;
     justify-content: center;
     padding: 2em;
 }
+
 main {
-    flex:1;
+    flex: 1;
     background: grey;
     color: white;
     padding: 2em;
@@ -22,6 +25,12 @@ main {
     justify-content: center;
     flex-wrap: wrap;
     align-items: flex-start;
+
+}
+
+main>div {
+    font-size: 25px;
+    padding: 25px;
 
 }
 
