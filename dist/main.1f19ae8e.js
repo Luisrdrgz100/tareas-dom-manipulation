@@ -105,7 +105,36 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   // Override the current require with this new one
   return newRequire;
 })({"main.js":[function(require,module,exports) {
+document.addEventListener('DOMContentLoaded', function () {
+  var createTemplateHtmlString = function createTemplateHtmlString(text) {
+    return "<div class=\"task\">\n            <div class=\"text\">".concat(text, "</div>\n            <button>remove</button>\n        </div>");
+  };
 
+  var createNodeFromString = function createNodeFromString(string) {
+    var divNode = document.createElement('div');
+    divNode.innerHTML = string;
+    return divNode.firstChild;
+  };
+
+  var inputNode = document.querySelector('header input');
+  inputNode.addEventListener('keyup', function (event) {
+    if (event.keyCode === 13) {
+      //get value from input
+      var newTaskText = event.target.value; // console.log(newTaskText);
+      // creat html string from value text
+
+      var newTaskHtmlString = createTemplateHtmlString(newTaskText); // console.log(newTaskHtmlString);
+      // node creation from html string
+
+      var newTaskNode = createNodeFromString(newTaskHtmlString); // console.log(newTaskNode)
+      // node inject to DOM in main
+
+      document.querySelector('main').appendChild(newTaskNode); // clean value
+
+      event.target.value = '';
+    }
+  });
+});
 },{}],"../../.npm-global/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -276,3 +305,4 @@ function hmrAccept(bundle, id) {
   });
 }
 },{}]},{},["../../.npm-global/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","main.js"], null)
+//# sourceMappingURL=/main.1f19ae8e.map
