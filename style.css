@@ -32,3 +32,8 @@ main {
     color: black;
     max-width: 200px;
 }
+
+.completed {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
