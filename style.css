@@ -1,0 +1,12 @@
+/* reset */
+* {
+    box-sizing: border-box;
+}
+
+header {
+    background: tomato
+}
+main {
+    background: grey;
+    color: white
+}
