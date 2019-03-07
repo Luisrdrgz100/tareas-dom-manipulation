@@ -1,4 +1,5 @@
 document.addEventListener( 'DOMContentLoaded', function () {
+
     let createTemplateHtmlString = text =>  `<div class="task">
             <div class="text">${text}</div>
             <button>remove</button>
@@ -7,6 +8,12 @@ document.addEventListener( 'DOMContentLoaded', function () {
         let divNode = document.createElement('div');
         divNode.innerHTML = string;
         return divNode.firstChild;
+    }
+    let addRemoveListener = node => {
+        node.querySelector( 'button' ).addEventListener( 'click', event => {
+            // event.target.parentNode.remove();
+            node.remove();
+        } )
     }
     let inputNode = document.querySelector( 'header input' );
 
@@ -24,12 +31,14 @@ document.addEventListener( 'DOMContentLoaded', function () {
             let newTaskNode = createNodeFromString(newTaskHtmlString)
             // console.log(newTaskNode)
 
+
             // node inject to DOM in main
             document.querySelector('main').appendChild(newTaskNode)
 
             // clean value
-            event.target.value = ''
+            event.target.value = '';
 
+            addRemoveListener(newTaskNode);
         }
     })
 
